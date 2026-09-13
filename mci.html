@@ -1,0 +1,3063 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MCI — Comunidade</title>
+
+    <meta name="description"
+        content="MCI — comunidade para quem está mudando de cidade e quer encontrar pessoas, informações e novas oportunidades.">
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- BOOTSTRAP ICONS -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        :root {
+            --azul: #087bea;
+            --azul-escuro: #075db4;
+            --azul-claro: #eef7ff;
+            --azul-suave: #dff0ff;
+
+            --texto: #10243c;
+            --cinza: #68798b;
+
+            --borda: #e2edf6;
+
+            --branco: #ffffff;
+            --verde: #20c76a;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+
+            width: 100%;
+            min-width: 320px;
+
+            overflow-x: hidden;
+
+            font-family: "Inter", sans-serif;
+            color: var(--texto);
+            background: #fff;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .mci-navbar {
+            min-height: 74px;
+
+            background: rgba(255, 255, 255, .95);
+
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(20, 60, 100, .07);
+
+            transition: .25s ease;
+
+            z-index: 1000;
+        }
+
+        .mci-navbar.navbar-scrolled {
+            box-shadow: 0 8px 30px rgba(20, 60, 100, .08);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--azul);
+
+            font-size: 23px;
+            font-weight: 800;
+
+            line-height: .9;
+        }
+
+        .navbar-brand:hover {
+            color: var(--azul);
+        }
+
+        .brand-mark {
+            width: 40px;
+            height: 40px;
+
+            display: grid;
+            place-items: center;
+
+            background: var(--azul-claro);
+            color: var(--azul);
+
+            border-radius: 11px;
+
+            font-size: 20px;
+
+            flex-shrink: 0;
+        }
+
+        .navbar-brand small {
+            display: block;
+
+            color: #71869a;
+
+            font-size: 7px;
+            font-weight: 600;
+
+            letter-spacing: 1.3px;
+
+            margin-top: 5px;
+        }
+
+        .nav-link {
+            color: #40536a !important;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            padding: 10px 15px !important;
+
+            transition: .2s;
+        }
+
+        .nav-link:hover {
+            color: var(--azul) !important;
+        }
+
+        .navbar-toggler {
+            border: 0 !important;
+
+            padding: 7px;
+
+            color: var(--texto);
+
+            box-shadow: none !important;
+        }
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 3px;
+
+            border-radius: 10px;
+
+            padding: 12px 20px;
+
+            font-weight: 700;
+
+            transition: .2s ease;
+        }
+
+        .btn-primary {
+            background: var(--azul);
+            border-color: var(--azul);
+        }
+
+        .btn-primary:hover {
+            background: var(--azul-escuro);
+            border-color: var(--azul-escuro);
+
+            transform: translateY(-2px);
+        }
+
+        .btn-header {
+            padding: 10px 18px;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            position: relative;
+
+            min-height: 750px;
+
+            display: flex;
+            align-items: center;
+
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(4, 30, 54, .94) 0%,
+                    rgba(7, 67, 108, .82) 42%,
+                    rgba(8, 123, 234, .25) 100%
+                ),
+                url("https://images.unsplash.com/photo-1568738351265-c7065f5d4293?auto=format&fit=crop&w=2000&q=85");
+
+            background-size: cover;
+
+            background-position: center;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 82% 30%,
+                    rgba(92, 190, 255, .22),
+                    transparent 32%
+                );
+
+            pointer-events: none;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            padding-top: 90px;
+            padding-bottom: 75px;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 9px;
+
+            color: #d8edff;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 1.7px;
+
+            margin-bottom: 20px;
+        }
+
+        .hero-label span {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #66c4ff;
+
+            flex-shrink: 0;
+        }
+
+        .hero h1 {
+            max-width: 780px;
+
+            color: white;
+
+            font-size: clamp(42px, 6vw, 72px);
+
+            line-height: 1.03;
+
+            letter-spacing: -3px;
+
+            font-weight: 700;
+
+            margin: 0 0 25px;
+        }
+
+        .hero h1 strong {
+            display: block;
+
+            color: #72c5ff;
+        }
+
+        .hero-text {
+            max-width: 610px;
+
+            color: #dfedf8;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            margin-bottom: 30px;
+        }
+
+        .hero-actions {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+        .hero-actions .btn {
+            min-height: 52px;
+            padding: 14px 22px;
+        }
+
+        .hero-note {
+            margin-top: 20px;
+
+            color: #c6dceb;
+
+            font-size: 12px;
+        }
+
+        .hero-note i {
+            color: #6cc5ff;
+
+            margin-right: 5px;
+        }
+
+        .hero-location {
+            position: absolute;
+
+            right: 25px;
+            bottom: 20px;
+
+            z-index: 3;
+
+            color: white;
+
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           QUICK INFO
+        ===================================================== */
+
+        .quick-info {
+            position: relative;
+
+            z-index: 5;
+
+            margin-top: -45px;
+            padding-bottom: 20px;
+        }
+
+        .quick-card {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            background: white;
+
+            border: 1px solid var(--borda);
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 15px 45px rgba(26, 75, 116, .13);
+        }
+
+        .quick-item {
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+
+            min-height: 105px;
+
+            padding: 22px;
+
+            border-right: 1px solid var(--borda);
+        }
+
+        .quick-item:last-child {
+            border-right: 0;
+        }
+
+        .quick-item > i {
+            color: var(--azul);
+
+            font-size: 25px;
+
+            flex-shrink: 0;
+        }
+
+        .quick-item strong,
+        .quick-item span {
+            display: block;
+        }
+
+        .quick-item strong {
+            font-size: 13px;
+        }
+
+        .quick-item span {
+            color: var(--cinza);
+
+            font-size: 10px;
+
+            margin-top: 3px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           SEÇÕES
+        ===================================================== */
+
+        .section-padding {
+            padding: 110px 0;
+        }
+
+        .section-tag {
+            display: inline-block;
+
+            color: var(--azul);
+
+            font-size: 10px;
+            font-weight: 800;
+
+            letter-spacing: 1.7px;
+
+            margin-bottom: 13px;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 4vw, 46px);
+
+            line-height: 1.12;
+
+            letter-spacing: -1.7px;
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
+        }
+
+        .section-description {
+            max-width: 680px;
+
+            color: var(--cinza);
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            margin-bottom: 0;
+        }
+
+
+        /* =====================================================
+           PROBLEMAS
+        ===================================================== */
+
+        .problem-card {
+            height: 100%;
+
+            padding: 34px;
+
+            background: white;
+
+            border: 1px solid var(--borda);
+
+            border-radius: 15px;
+
+            transition: .25s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+
+            border-color: #cce4f7;
+
+            box-shadow:
+                0 16px 35px rgba(28, 78, 120, .09);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+
+            display: grid;
+            place-items: center;
+
+            background: var(--azul-claro);
+            color: var(--azul);
+
+            border-radius: 12px;
+
+            font-size: 22px;
+
+            margin-bottom: 22px;
+        }
+
+        .problem-card h3 {
+            font-size: 18px;
+
+            margin-bottom: 11px;
+        }
+
+        .problem-card p {
+            color: var(--cinza);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            margin: 0;
+        }
+
+
+        /* =====================================================
+           COMO FUNCIONA
+        ===================================================== */
+
+        .how-section {
+            padding: 110px 0;
+
+            background: var(--azul-claro);
+        }
+
+        .step {
+            display: flex;
+
+            gap: 25px;
+
+            padding: 27px 0;
+
+            border-bottom: 1px solid #d6e8f7;
+        }
+
+        .step:first-child {
+            padding-top: 0;
+        }
+
+        .step:last-child {
+            border-bottom: 0;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+
+            color: var(--azul);
+
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .step h3 {
+            font-size: 18px;
+
+            margin-bottom: 7px;
+        }
+
+        .step p {
+            color: var(--cinza);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            margin: 0;
+        }
+
+
+        /* =====================================================
+           BENEFÍCIOS
+        ===================================================== */
+
+        .benefit-card {
+            height: 100%;
+
+            padding: 28px;
+
+            background: white;
+
+            border: 1px solid var(--borda);
+
+            border-radius: 13px;
+
+            transition: .2s ease;
+        }
+
+        .benefit-card:hover {
+            border-color: #cce4f7;
+
+            transform: translateY(-3px);
+        }
+
+        .benefit-card > i {
+            color: var(--azul);
+
+            font-size: 23px;
+        }
+
+        .benefit-card h3 {
+            font-size: 17px;
+
+            margin: 17px 0 9px;
+        }
+
+        .benefit-card p {
+            color: var(--cinza);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            margin: 0;
+        }
+
+
+        /* =====================================================
+           BRASIL
+        ===================================================== */
+
+        .brazil-section {
+            padding: 100px 0;
+
+            background:
+                radial-gradient(
+                    circle at 90% 50%,
+                    #d8efff,
+                    transparent 35%
+                ),
+                #f7fbff;
+
+            overflow: hidden;
+        }
+
+        .brazil-section h2 {
+            font-size: clamp(35px, 4vw, 52px);
+
+            line-height: 1.1;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 20px;
+        }
+
+        .brazil-section p {
+            max-width: 600px;
+
+            color: var(--cinza);
+
+            line-height: 1.8;
+        }
+
+        .state-pills {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+
+            margin-top: 25px;
+        }
+
+        .state-pills span {
+            padding: 7px 12px;
+
+            background: white;
+
+            border: 1px solid #d6e8f6;
+
+            border-radius: 7px;
+
+            color: var(--azul);
+
+            font-size: 10px;
+
+            font-weight: 800;
+        }
+
+        .map-box {
+            width: 280px;
+            height: 300px;
+
+            margin: auto;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--azul);
+        }
+
+        .map-box > i {
+            font-size: 145px;
+
+            opacity: .8;
+        }
+
+        .map-pin {
+            position: absolute;
+
+            top: 65px;
+            right: 65px;
+
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            color: white;
+
+            background: var(--azul);
+
+            border: 5px solid white;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 7px 25px rgba(0, 90, 170, .25);
+        }
+
+
+        /* =====================================================
+           PREÇO
+        ===================================================== */
+
+        .pricing-section {
+            padding: 110px 0;
+        }
+
+        .pricing-card {
+            width: 100%;
+
+            max-width: 540px;
+
+            margin-left: auto;
+            margin-right: auto;
+
+            padding: 42px;
+
+            background: white;
+
+            border: 1px solid #cfe4f6;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 22px 60px rgba(30, 83, 126, .12);
+        }
+
+        .pricing-head span {
+            color: var(--azul);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+        }
+
+        .pricing-head h3 {
+            font-size: 25px;
+
+            margin-top: 8px;
+        }
+
+        .price {
+            color: var(--azul);
+
+            font-size: 58px;
+
+            font-weight: 800;
+
+            letter-spacing: -3px;
+
+            margin-top: 25px;
+
+            line-height: 1;
+        }
+
+        .price small {
+            font-size: 20px;
+
+            letter-spacing: 0;
+        }
+
+        .price span {
+            font-size: 30px;
+        }
+
+        .price em {
+            color: var(--cinza);
+
+            font-size: 13px;
+
+            font-style: normal;
+
+            font-weight: 500;
+
+            letter-spacing: 0;
+        }
+
+        .price-note {
+            color: var(--cinza);
+
+            font-size: 13px;
+        }
+
+        .pricing-list {
+            list-style: none;
+
+            padding: 0;
+
+            margin: 25px 0;
+        }
+
+        .pricing-list li {
+            padding: 9px 0;
+
+            color: #40536b;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+        .pricing-list i {
+            color: var(--azul);
+
+            margin-right: 8px;
+        }
+
+        .secure-payment {
+            color: #8495a6;
+
+            text-align: center;
+
+            font-size: 10px;
+
+            margin-top: 15px;
+        }
+
+
+        /* =====================================================
+           FAQ
+        ===================================================== */
+
+        .faq-section {
+            background: #f8fbfe;
+        }
+
+        .accordion-item {
+            margin-bottom: 10px;
+
+            border: 1px solid var(--borda) !important;
+
+            border-radius: 10px !important;
+
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            padding: 20px;
+
+            background: white;
+
+            color: var(--texto);
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            box-shadow: none !important;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: white;
+
+            color: var(--azul);
+        }
+
+        .accordion-body {
+            color: var(--cinza);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           CTA FINAL
+        ===================================================== */
+
+        .final-cta {
+            padding: 110px 0;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #075db4,
+                    #087fea
+                );
+        }
+
+        .final-cta h2 {
+            font-size: clamp(36px, 5vw, 58px);
+
+            line-height: 1.07;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 0;
+        }
+
+        .final-cta p {
+            color: #d9edff;
+
+            margin: 20px auto 30px;
+
+            line-height: 1.7;
+        }
+
+        .final-cta .section-tag {
+            color: #bde3ff;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            padding: 60px 0 25px;
+
+            background: #071b30;
+
+            color: #a9bdce;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            color: white;
+
+            font-size: 22px;
+
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            max-width: 380px;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+        footer h4 {
+            color: white;
+
+            font-size: 13px;
+
+            margin-bottom: 18px;
+        }
+
+        footer a {
+            display: block;
+
+            color: #9db3c7;
+
+            font-size: 12px;
+
+            margin-bottom: 10px;
+
+            transition: .2s;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        footer hr {
+            border-color: rgba(255, 255, 255, .08);
+
+            margin: 40px 0 20px;
+        }
+
+        .footer-bottom {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            color: #71869a;
+
+            font-size: 10px;
+        }
+
+
+        /* =====================================================
+           WHATSAPP
+        ===================================================== */
+
+        .whatsapp {
+            position: fixed;
+
+            right: 22px;
+            bottom: 22px;
+
+            width: 57px;
+            height: 57px;
+
+            display: grid;
+            place-items: center;
+
+            color: white;
+
+            background: var(--verde);
+
+            border-radius: 50%;
+
+            font-size: 25px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, .2);
+
+            z-index: 9999;
+
+            transition: .2s ease;
+        }
+
+        .whatsapp:hover {
+            color: white;
+
+            transform: translateY(-4px);
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 991.98px) {
+
+            .mci-navbar {
+                min-height: 68px;
+            }
+
+            .navbar-collapse {
+                padding: 15px 0 18px;
+            }
+
+            .nav-link {
+                padding: 11px 4px !important;
+            }
+
+            .btn-header {
+                width: 100%;
+
+                margin-top: 8px;
+            }
+
+            .hero {
+                min-height: 700px;
+            }
+
+            .hero-content {
+                padding-top: 100px;
+                padding-bottom: 70px;
+            }
+
+            .hero h1 {
+                max-width: 700px;
+
+                font-size: clamp(40px, 7vw, 60px);
+            }
+
+            .hero-text {
+                font-size: 16px;
+            }
+
+            .quick-card {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quick-item:nth-child(1),
+            .quick-item:nth-child(2) {
+                border-bottom: 1px solid var(--borda);
+            }
+
+            .quick-item:nth-child(2) {
+                border-right: 0;
+            }
+
+            .section-padding,
+            .how-section,
+            .pricing-section,
+            .final-cta {
+                padding: 85px 0;
+            }
+
+            .brazil-section {
+                padding: 85px 0;
+            }
+
+            .map-box {
+                margin-top: 35px;
+            }
+
+            .pricing-card {
+                padding: 35px 30px;
+            }
+        }
+
+
+        /* =====================================================
+           CELULAR
+        ===================================================== */
+
+        @media (max-width: 767.98px) {
+
+            .container {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+
+            /* NAV */
+
+            .navbar-brand {
+                font-size: 20px;
+            }
+
+            .brand-mark {
+                width: 37px;
+                height: 37px;
+
+                border-radius: 10px;
+            }
+
+            .navbar-brand small {
+                font-size: 6px;
+            }
+
+
+            /* HERO */
+
+            .hero {
+                min-height: auto;
+
+                align-items: flex-start;
+
+                padding-top: 70px;
+
+                background-image:
+                    linear-gradient(
+                        180deg,
+                        rgba(4, 30, 54, .96) 0%,
+                        rgba(7, 67, 108, .90) 55%,
+                        rgba(8, 123, 234, .62) 100%
+                    ),
+                    url("https://images.unsplash.com/photo-1568738351265-c7065f5d4293?auto=format&fit=crop&w=1200&q=85");
+
+                background-position: center;
+            }
+
+            .hero-content {
+                padding-top: 45px;
+                padding-bottom: 80px;
+            }
+
+            .hero-label {
+                font-size: 9px;
+
+                letter-spacing: 1.3px;
+
+                margin-bottom: 15px;
+            }
+
+            .hero h1 {
+                max-width: 100%;
+
+                font-size: clamp(36px, 10vw, 50px);
+
+                line-height: 1.05;
+
+                letter-spacing: -2px;
+
+                margin-bottom: 20px;
+            }
+
+            .hero-text {
+                font-size: 14px;
+
+                line-height: 1.7;
+
+                margin-bottom: 23px;
+            }
+
+            .hero-actions {
+                width: 100%;
+
+                flex-direction: column;
+
+                gap: 10px;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+
+                min-height: 52px;
+            }
+
+            .hero-note {
+                font-size: 11px;
+
+                line-height: 1.5;
+            }
+
+            .hero-location {
+                left: 18px;
+                right: auto;
+
+                bottom: 17px;
+
+                font-size: 9px;
+            }
+
+
+            /* QUICK INFO */
+
+            .quick-info {
+                margin-top: -25px;
+            }
+
+            .quick-card {
+                grid-template-columns: 1fr;
+
+                border-radius: 14px;
+            }
+
+            .quick-item,
+            .quick-item:nth-child(1),
+            .quick-item:nth-child(2) {
+                min-height: 82px;
+
+                padding: 19px;
+
+                border-right: 0;
+
+                border-bottom: 1px solid var(--borda);
+            }
+
+            .quick-item:last-child {
+                border-bottom: 0;
+            }
+
+            .quick-item > i {
+                font-size: 23px;
+            }
+
+            .quick-item strong {
+                font-size: 12px;
+            }
+
+            .quick-item span {
+                font-size: 10px;
+            }
+
+
+            /* SEÇÕES */
+
+            .section-padding,
+            .how-section,
+            .pricing-section,
+            .final-cta,
+            .brazil-section {
+                padding: 70px 0;
+            }
+
+            .section-tag {
+                font-size: 9px;
+
+                letter-spacing: 1.3px;
+            }
+
+            .section-title {
+                font-size: clamp(29px, 8.5vw, 40px);
+
+                letter-spacing: -1.3px;
+            }
+
+            .section-description {
+                font-size: 13px;
+
+                line-height: 1.7;
+            }
+
+
+            /* CARDS */
+
+            .problem-card,
+            .benefit-card {
+                padding: 25px;
+            }
+
+            .problem-card h3,
+            .benefit-card h3 {
+                font-size: 17px;
+            }
+
+            .problem-card p,
+            .benefit-card p {
+                font-size: 12px;
+            }
+
+
+            /* COMO FUNCIONA */
+
+            .step {
+                gap: 14px;
+
+                padding: 22px 0;
+            }
+
+            .step-number {
+                width: 28px;
+
+                min-width: 28px;
+            }
+
+            .step h3 {
+                font-size: 16px;
+            }
+
+            .step p {
+                font-size: 12px;
+
+                line-height: 1.6;
+            }
+
+
+            /* BRASIL */
+
+            .brazil-section h2 {
+                font-size: clamp(32px, 9vw, 43px);
+
+                letter-spacing: -1.5px;
+            }
+
+            .brazil-section p {
+                font-size: 13px;
+
+                line-height: 1.7;
+            }
+
+            .state-pills {
+                gap: 6px;
+            }
+
+            .state-pills span {
+                padding: 7px 10px;
+
+                font-size: 9px;
+            }
+
+            .map-box {
+                width: 210px;
+                height: 210px;
+
+                margin-top: 30px;
+            }
+
+            .map-box > i {
+                font-size: 105px;
+            }
+
+            .map-pin {
+                width: 38px;
+                height: 38px;
+
+                top: 38px;
+                right: 35px;
+            }
+
+
+            /* PREÇO */
+
+            .pricing-card {
+                max-width: 100%;
+
+                padding: 29px 21px;
+
+                border-radius: 17px;
+            }
+
+            .pricing-head h3 {
+                font-size: 22px;
+            }
+
+            .price {
+                font-size: 50px;
+
+                letter-spacing: -2px;
+            }
+
+            .price small {
+                font-size: 17px;
+            }
+
+            .price span {
+                font-size: 26px;
+            }
+
+            .price em {
+                font-size: 12px;
+            }
+
+            .price-note {
+                font-size: 12px;
+            }
+
+            .pricing-list li {
+                font-size: 12px;
+
+                padding: 8px 0;
+            }
+
+            .pricing-card .btn {
+                width: 100%;
+
+                min-height: 54px;
+
+                font-size: 14px;
+            }
+
+
+            /* FAQ */
+
+            .accordion-button {
+                padding: 17px;
+
+                font-size: 13px;
+            }
+
+            .accordion-body {
+                padding: 17px;
+
+                font-size: 12px;
+            }
+
+
+            /* CTA */
+
+            .final-cta h2 {
+                font-size: clamp(33px, 9vw, 46px);
+
+                letter-spacing: -1.5px;
+            }
+
+            .final-cta p {
+                font-size: 13px;
+
+                line-height: 1.7;
+            }
+
+            .final-cta .btn {
+                width: 100%;
+
+                min-height: 53px;
+            }
+
+
+            /* FOOTER */
+
+            footer {
+                padding: 48px 0 20px;
+            }
+
+            footer p,
+            footer a {
+                font-size: 11px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+
+                align-items: center;
+
+                text-align: center;
+            }
+
+
+            /* WHATSAPP */
+
+            .whatsapp {
+                width: 53px;
+                height: 53px;
+
+                right: 14px;
+                bottom: 14px;
+
+                font-size: 23px;
+            }
+        }
+
+
+        /* =====================================================
+           CELULAR PEQUENO
+        ===================================================== */
+
+        @media (max-width: 380px) {
+
+            .container {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .hero {
+                padding-top: 65px;
+            }
+
+            .hero-content {
+                padding-top: 38px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+
+                letter-spacing: -1.5px;
+            }
+
+            .hero-text {
+                font-size: 13px;
+            }
+
+            .section-title {
+                font-size: 29px;
+            }
+
+            .pricing-card {
+                padding: 25px 17px;
+            }
+
+            .price {
+                font-size: 44px;
+            }
+
+            .quick-item {
+                padding: 17px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar navbar-expand-lg fixed-top mci-navbar">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="#">
+
+            <span class="brand-mark">
+                <i class="bi bi-people-fill"></i>
+            </span>
+
+            <span>
+                MCI
+                <small>COMUNIDADE</small>
+            </span>
+
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu"
+            aria-controls="menu"
+            aria-expanded="false"
+            aria-label="Abrir menu">
+
+            <i class="bi bi-list fs-3"></i>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="menu">
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#sobre">
+                        Sobre
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#beneficios">
+                        Benefícios
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#como-funciona">
+                        Como funciona
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#faq">
+                        FAQ
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <a href="#assinatura"
+                class="btn btn-primary btn-header">
+
+                Quero entrar
+
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="row">
+
+                <div class="col-lg-8">
+
+                    <div class="hero-label">
+
+                        <span></span>
+
+                        COMUNIDADE MCI
+
+                    </div>
+
+
+                    <h1>
+
+                        Sua próxima cidade
+                        <strong>pode começar aqui.</strong>
+
+                    </h1>
+
+
+                    <p class="hero-text">
+
+                        Um espaço para quem está mudando de cidade,
+                        procurando oportunidades ou simplesmente tentando
+                        construir uma nova rede de pessoas.
+
+                    </p>
+
+
+                    <div class="hero-actions">
+
+                        <a href="#assinatura"
+                            class="btn btn-primary btn-lg">
+
+                            Quero fazer parte
+
+                            <i class="bi bi-arrow-right ms-2"></i>
+
+                        </a>
+
+
+                        <a href="#como-funciona"
+                            class="btn btn-outline-light btn-lg">
+
+                            Conhecer a MCI
+
+                        </a>
+
+                    </div>
+
+
+                    <div class="hero-note">
+
+                        <i class="bi bi-shield-check"></i>
+
+                        Comunidade feita para pessoas reais.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-location">
+
+        <i class="bi bi-geo-alt-fill"></i>
+
+        Santa Catarina · Brasil
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     QUICK INFO
+===================================================== -->
+
+<section class="quick-info">
+
+    <div class="container">
+
+        <div class="quick-card">
+
+
+            <div class="quick-item">
+
+                <i class="bi bi-people"></i>
+
+                <div>
+
+                    <strong>Pessoas</strong>
+
+                    <span>
+                        conectadas pelo Brasil
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-item">
+
+                <i class="bi bi-house"></i>
+
+                <div>
+
+                    <strong>Moradia</strong>
+
+                    <span>
+                        dicas e experiências
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-item">
+
+                <i class="bi bi-briefcase"></i>
+
+                <div>
+
+                    <strong>Oportunidades</strong>
+
+                    <span>
+                        vagas e informações
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-item">
+
+                <i class="bi bi-chat-dots"></i>
+
+                <div>
+
+                    <strong>Comunidade</strong>
+
+                    <span>
+                        troca de experiências
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SOBRE
+===================================================== -->
+
+<section class="section-padding" id="sobre">
+
+    <div class="container">
+
+
+        <div class="row justify-content-center text-center">
+
+            <div class="col-lg-8">
+
+                <span class="section-tag">
+                    POR QUE A MCI EXISTE?
+                </span>
+
+                <h2 class="section-title">
+
+                    Mudar de cidade é mais fácil
+                    quando você não está sozinho.
+
+                </h2>
+
+                <p class="section-description mx-auto">
+
+                    Quando você chega em um lugar novo,
+                    aparecem várias perguntas: onde morar?
+                    Onde procurar trabalho? Quem pode ajudar?
+                    Como conhecer pessoas?
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="row g-4 mt-4">
+
+            <div class="col-md-4">
+
+                <div class="problem-card">
+
+                    <div class="card-icon">
+
+                        <i class="bi bi-house-heart"></i>
+
+                    </div>
+
+                    <h3>
+                        Encontrar moradia
+                    </h3>
+
+                    <p>
+
+                        Descubra experiências sobre bairros,
+                        aluguel, repúblicas e lugares para morar.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="problem-card">
+
+                    <div class="card-icon">
+
+                        <i class="bi bi-briefcase"></i>
+
+                    </div>
+
+                    <h3>
+                        Buscar oportunidades
+                    </h3>
+
+                    <p>
+
+                        Compartilhe e encontre informações
+                        sobre trabalho e oportunidades
+                        na nova cidade.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="problem-card">
+
+                    <div class="card-icon">
+
+                        <i class="bi bi-person-hearts"></i>
+
+                    </div>
+
+                    <h3>
+                        Criar conexões
+                    </h3>
+
+                    <p>
+
+                        Conheça pessoas que passaram
+                        ou estão passando pela mesma experiência.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     COMO FUNCIONA
+===================================================== -->
+
+<section class="how-section" id="como-funciona">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+
+            <div class="col-lg-5 mb-5 mb-lg-0">
+
+                <span class="section-tag">
+                    SIMPLES ASSIM
+                </span>
+
+                <h2 class="section-title">
+
+                    Você chega.
+                    <br>
+                    A comunidade ajuda.
+
+                </h2>
+
+                <p class="section-description mb-4">
+
+                    A MCI funciona como uma rede de apoio
+                    para quem está começando uma nova fase
+                    em outra cidade.
+
+                </p>
+
+                <a href="#assinatura"
+                    class="btn btn-primary">
+
+                    Quero participar
+
+                    <i class="bi bi-arrow-right ms-1"></i>
+
+                </a>
+
+            </div>
+
+
+            <div class="col-lg-6 offset-lg-1">
+
+                <div class="step">
+
+                    <div class="step-number">
+                        01
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Entre para a comunidade
+                        </h3>
+
+                        <p>
+
+                            Faça sua assinatura e tenha acesso
+                            ao ambiente destinado aos membros.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        02
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Conheça outras pessoas
+                        </h3>
+
+                        <p>
+
+                            Converse com quem já mudou ou
+                            também está planejando sua mudança.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        03
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Troque informações
+                        </h3>
+
+                        <p>
+
+                            Compartilhe experiências,
+                            oportunidades, dicas e informações úteis.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BENEFÍCIOS
+===================================================== -->
+
+<section class="section-padding" id="beneficios">
+
+    <div class="container">
+
+
+        <div class="text-center mb-5">
+
+            <span class="section-tag">
+                DENTRO DA MCI
+            </span>
+
+            <h2 class="section-title">
+
+                Uma comunidade feita
+                para a vida real.
+
+            </h2>
+
+            <p class="section-description mx-auto">
+
+                Não é só sobre mudar de endereço.
+                É sobre construir uma nova rotina.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-3">
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="benefit-card">
+
+                    <i class="bi bi-house-door"></i>
+
+                    <h3>
+                        Moradia
+                    </h3>
+
+                    <p>
+
+                        Experiências, bairros, aluguel
+                        e dicas para encontrar seu espaço.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="benefit-card">
+
+                    <i class="bi bi-building"></i>
+
+                    <h3>
+                        Emprego
+                    </h3>
+
+                    <p>
+
+                        Informações e oportunidades
+                        compartilhadas pelos próprios membros.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="benefit-card">
+
+                    <i class="bi bi-map"></i>
+
+                    <h3>
+                        Cidades
+                    </h3>
+
+                    <p>
+
+                        Conheça melhor o lugar antes
+                        de tomar uma decisão importante.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="benefit-card">
+
+                    <i class="bi bi-chat-square-text"></i>
+
+                    <h3>
+                        Conversas
+                    </h3>
+
+                    <p>
+
+                        Troque ideias com pessoas que
+                        entendem o desafio de começar novamente.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="benefit-card">
+
+                    <i class="bi bi-book"></i>
+
+                    <h3>
+                        Conteúdos
+                    </h3>
+
+                    <p>
+
+                        Materiais e informações pensados
+                        para facilitar sua adaptação.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="benefit-card">
+
+                    <i class="bi bi-share"></i>
+
+                    <h3>
+                        Networking
+                    </h3>
+
+                    <p>
+
+                        Novas amizades, contatos profissionais
+                        e possíveis parcerias.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BRASIL
+===================================================== -->
+
+<section class="brazil-section">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+
+            <div class="col-lg-7">
+
+                <span class="section-tag">
+                    DE NORTE A SUL
+                </span>
+
+
+                <h2>
+
+                    O Brasil é enorme.
+                    <br>
+                    Sua rede também pode ser.
+
+                </h2>
+
+
+                <p>
+
+                    A MCI nasceu para aproximar pessoas
+                    que estão deixando sua cidade de origem
+                    para construir novas histórias em outros lugares.
+
+                </p>
+
+
+                <div class="state-pills">
+
+                    <span>SC</span>
+                    <span>PR</span>
+                    <span>SP</span>
+                    <span>RS</span>
+                    <span>GO</span>
+                    <span>BA</span>
+                    <span>AM</span>
+                    <span>+</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-5">
+
+                <div class="map-box">
+
+                    <i class="bi bi-map"></i>
+
+                    <div class="map-pin">
+
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ASSINATURA
+===================================================== -->
+
+<section class="pricing-section" id="assinatura">
+
+    <div class="container">
+
+
+        <div class="row justify-content-center text-center">
+
+            <div class="col-lg-7">
+
+                <span class="section-tag">
+                    ENTRE PARA A MCI
+                </span>
+
+                <h2 class="section-title">
+
+                    Sua próxima conexão
+                    pode estar aqui.
+
+                </h2>
+
+                <p class="section-description mx-auto">
+
+                    Tenha acesso à comunidade e faça parte
+                    dessa rede de pessoas.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="pricing-card mt-5">
+
+
+            <div class="pricing-head">
+
+                <span>
+                    PLANO MCI
+                </span>
+
+                <h3>
+                    Comunidade
+                </h3>
+
+            </div>
+
+
+            <div class="price">
+
+                <small>R$</small>
+                29<span>,90</span>
+                <em>/mês</em>
+
+            </div>
+
+
+            <p class="price-note">
+                Assinatura mensal
+            </p>
+
+
+            <ul class="pricing-list">
+
+                <li>
+                    <i class="bi bi-check-circle-fill"></i>
+                    Acesso à comunidade
+                </li>
+
+                <li>
+                    <i class="bi bi-check-circle-fill"></i>
+                    Conteúdos exclusivos
+                </li>
+
+                <li>
+                    <i class="bi bi-check-circle-fill"></i>
+                    Informações sobre cidades
+                </li>
+
+                <li>
+                    <i class="bi bi-check-circle-fill"></i>
+                    Oportunidades compartilhadas
+                </li>
+
+                <li>
+                    <i class="bi bi-check-circle-fill"></i>
+                    Dicas de moradia
+                </li>
+
+                <li>
+                    <i class="bi bi-check-circle-fill"></i>
+                    Networking entre membros
+                </li>
+
+            </ul>
+
+
+            <!-- =================================================
+                 TROQUE PELO SEU CHECKOUT DA MONETIZZE
+            ================================================== -->
+
+            <a href="https://pay.kiwify.com.br/3KEGMR8"
+"
+                class="btn btn-primary btn-lg w-100">
+
+                Quero entrar na MCI
+
+                <i class="bi bi-arrow-right ms-2"></i>
+
+            </a>
+
+
+            <div class="secure-payment">
+
+                <i class="bi bi-lock-fill"></i>
+
+                Pagamento processado em ambiente seguro.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FAQ
+===================================================== -->
+
+<section class="section-padding faq-section" id="faq">
+
+    <div class="container">
+
+
+        <div class="text-center mb-5">
+
+            <span class="section-tag">
+                DÚVIDAS
+            </span>
+
+            <h2 class="section-title">
+                Perguntas frequentes
+            </h2>
+
+        </div>
+
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="accordion" id="faqAccordion">
+
+
+                    <div class="accordion-item">
+
+                        <h2 class="accordion-header">
+
+                            <button
+                                class="accordion-button"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq1">
+
+                                O que é a MCI?
+
+                            </button>
+
+                        </h2>
+
+
+                        <div
+                            id="faq1"
+                            class="accordion-collapse collapse show"
+                            data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body">
+
+                                A MCI é uma comunidade criada para
+                                conectar pessoas que estão mudando,
+                                pretendem mudar ou já mudaram de cidade.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="accordion-item">
+
+                        <h2 class="accordion-header">
+
+                            <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq2">
+
+                                Quanto custa participar?
+
+                            </button>
+
+                        </h2>
+
+
+                        <div
+                            id="faq2"
+                            class="accordion-collapse collapse"
+                            data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body">
+
+                                O plano apresentado atualmente custa
+                                R$ 29,90 por mês.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="accordion-item">
+
+                        <h2 class="accordion-header">
+
+                            <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq3">
+
+                                A MCI garante emprego ou moradia?
+
+                            </button>
+
+                        </h2>
+
+
+                        <div
+                            id="faq3"
+                            class="accordion-collapse collapse"
+                            data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body">
+
+                                Não. A MCI oferece um espaço para
+                                troca de informações, experiências
+                                e oportunidades. Não existe garantia
+                                de emprego, aluguel ou resultado financeiro.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="accordion-item">
+
+                        <h2 class="accordion-header">
+
+                            <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq4">
+
+                                Posso cancelar minha assinatura?
+
+                            </button>
+
+                        </h2>
+
+
+                        <div
+                            id="faq4"
+                            class="accordion-collapse collapse"
+                            data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body">
+
+                                Sim. O cancelamento segue as condições
+                                apresentadas no momento da contratação.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="accordion-item">
+
+                        <h2 class="accordion-header">
+
+                            <button
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq5">
+
+                                A comunidade é somente para quem vai
+                                para Santa Catarina?
+
+                            </button>
+
+                        </h2>
+
+
+                        <div
+                            id="faq5"
+                            class="accordion-collapse collapse"
+                            data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body">
+
+                                Não. A proposta da MCI é conectar
+                                pessoas de diferentes regiões e
+                                cidades do Brasil.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA FINAL
+===================================================== -->
+
+<section class="final-cta">
+
+    <div class="container">
+
+        <div class="row justify-content-center text-center">
+
+            <div class="col-lg-8">
+
+                <span class="section-tag">
+                    PRONTO PARA COMEÇAR?
+                </span>
+
+
+                <h2>
+
+                    Uma nova cidade.
+                    <br>
+                    Novas pessoas.
+                    <br>
+                    Novas possibilidades.
+
+                </h2>
+
+
+                <p>
+
+                    Faça parte da MCI e comece a construir
+                    sua nova rede.
+
+                </p>
+
+
+                <a href="#assinatura"
+                    class="btn btn-light btn-lg">
+
+                    Quero fazer parte
+
+                    <i class="bi bi-arrow-right ms-2"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="row gy-4">
+
+
+            <div class="col-lg-5">
+
+                <div class="footer-brand">
+
+                    <span class="brand-mark">
+
+                        <i class="bi bi-people-fill"></i>
+
+                    </span>
+
+                    <strong>
+                        MCI
+                    </strong>
+
+                </div>
+
+
+                <p>
+
+                    Conectando pessoas, compartilhando experiências
+                    e construindo novos caminhos.
+
+                </p>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3">
+
+                <h4>
+                    Navegação
+                </h4>
+
+                <a href="#sobre">
+                    Sobre
+                </a>
+
+                <a href="#beneficios">
+                    Benefícios
+                </a>
+
+                <a href="#como-funciona">
+                    Como funciona
+                </a>
+
+                <a href="#faq">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <div class="col-6 col-lg-4">
+
+                <h4>
+                    Contato
+                </h4>
+
+
+                </a>
+
+
+                <!-- TROQUE PELO SEU INSTAGRAM -->
+
+                <a
+                    href="https://www.instagram.com/mci_mude_com_informacoes?stkn=MXBvbm13d2hodG9jbw%3D%3D&utm_source=qr"
+                    target="_blank"
+                    rel="noopener">
+
+                    <i class="bi bi-instagram"></i>
+
+                    @comunidadeMCI
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <hr>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 MCI. Todos os direitos reservados.
+            </span>
+
+            <span>
+                Comunidade independente.
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     BOOTSTRAP JS
+===================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<script>
+
+    /* =====================================================
+       NAVBAR AO ROLAR
+    ===================================================== */
+
+    const navbar = document.querySelector(".mci-navbar");
+
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY > 30) {
+
+            navbar.classList.add("navbar-scrolled");
+
+        } else {
+
+            navbar.classList.remove("navbar-scrolled");
+
+        }
+
+    });
+
+
+    /* =====================================================
+       FECHAR MENU MOBILE
+    ===================================================== */
+
+    const menuLinks = document.querySelectorAll(
+        ".navbar-collapse .nav-link"
+    );
+
+    const menu = document.querySelector("#menu");
+
+    menuLinks.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            if (
+                menu.classList.contains("show") &&
+                window.bootstrap
+            ) {
+
+                const collapse =
+                    bootstrap.Collapse.getInstance(menu);
+
+                if (collapse) {
+
+                    collapse.hide();
+
+                }
+
+            }
+
+        });
+
+    });
+
+
+    /* =====================================================
+       ANIMAÇÃO DOS CARDS
+    ===================================================== */
+
+    const elementos = document.querySelectorAll(
+        ".problem-card, .benefit-card, .step, .pricing-card"
+    );
+
+    const observer = new IntersectionObserver(
+
+        function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                    observer.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
+
+    elementos.forEach(function (elemento) {
+
+        elemento.style.opacity = "0";
+
+        elemento.style.transform = "translateY(18px)";
+
+        elemento.style.transition =
+            "opacity .6s ease, transform .6s ease";
+
+        observer.observe(elemento);
+
+    });
+
+
+    /* =====================================================
+       CLASSE DE ANIMAÇÃO
+    ===================================================== */
+
+    const styleAnimation = document.createElement("style");
+
+    styleAnimation.innerHTML = `
+
+        .problem-card.visible,
+        .benefit-card.visible,
+        .step.visible,
+        .pricing-card.visible {
+
+            opacity: 1 !important;
+
+            transform: translateY(0) !important;
+
+        }
+
+    `;
+
+    document.head.appendChild(styleAnimation);
+
+
+    /* =====================================================
+       LINKS INTERNOS
+    ===================================================== */
+
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+
+        link.addEventListener("click", function (event) {
+
+            const id = this.getAttribute("href");
+
+            if (!id || id === "#") {
+                return;
+            }
+
+            const destino = document.querySelector(id);
+
+            if (destino) {
+
+                event.preventDefault();
+
+                destino.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+
+        });
+
+    });
+
+</script>
+
+
+</body>
+</html>
+```
